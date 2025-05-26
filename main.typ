@@ -1,4 +1,5 @@
 #import "@preview/ori:0.2.2": numbly
+#import "@preview/cetz:0.3.4"
 
 #let Pa=($upright("Pa")$)
 #let vi=($bold(i)$)
@@ -57,6 +58,15 @@ $dif T$：温度的变化量，$upright("K")$
 
 == 黏性
 *牛顿内摩擦定律*
+
+#cetz.canvas({
+  import cetz.draw: *
+  line((0,0),(4,0))//下板
+  line((0,2),(4,2))//上板
+  line((0.5,0),(0.5,2))//流体开头
+  line((0.5,0),(3.5,2))//速度梯度
+  
+})
 
 $ Tau=mu u_0/y A $
 
@@ -193,6 +203,27 @@ $ cases(
 ) $
 等解速度旋转容器中的静压力分布公式
 $ p=p_0+rho g((omega^2r^2)/(2g)-z) $
+
+== 液体对平面总压力
+$ P=rho g h_c A $
+
+$ y_D=y_C+J_C/(y_C A) $
+压力中心$D$永远低于平面形心
+
+*常见惯性矩*
+
+矩形：$J_C=(B H^3)/12$\
+$H$：可见闸门边长\
+$B$：不可见闸门边长
+
+圆形：$J_C=pi/64 D^4$\
+
+== 静止流体作用在曲面上的总压力
+
+$ P_x=rho g h_C A_x $
+对于半球面：$A_x=(pi d^2)/4$
+$ P_y=rho g h_C A_s $
+$ P_z=rho g V "(竖直方向)" $
 ]
 
 
