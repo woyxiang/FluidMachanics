@@ -22,7 +22,8 @@
   "Maple Mono NF"
 ))
 
-#columns(2)[
+#set page(columns: 2)
+
 = 绪论
 
 == 连续介质
@@ -224,7 +225,9 @@ $ P_x=rho g h_C A_x $
 对于半球面：$A_x=(pi d^2)/4$
 $ P_y=rho g h_C A_s $
 $ P_z=rho g V "(竖直方向)" $
-]
+
+总压力可表示为
+$ bold(P)=P_x vi+P_y vj+P_z vk $
 
 
 
