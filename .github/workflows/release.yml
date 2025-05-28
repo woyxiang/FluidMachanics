@@ -32,6 +32,7 @@ jobs:
         
         # 安装 Fira Math (数学字体)
         scoop install FiraMathOtf
+        scoop install nerd-fonts/LXGWNeoXiHei
         
         # 安装 Typst
 
@@ -48,3 +49,13 @@ jobs:
       with:
         name: compiled-pdf
         path: main.pdf
+
+    - name: Deploy PDF to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: .  # 当前目录
+        publish_branch: gh-pages
+        keep_files: false  # 保留旧文件
+        destination_dir: .  # 发布在 gh-pages 根目录
+        enable_jekyll: false  # 禁用 Jekyll，防止 .pdf 被忽略

@@ -10,7 +10,7 @@
 
 #set text(font: "Maple Mono NF",size:11pt)
 #show heading: it => {
-  set text(font: "SimHei")
+  set text(font: "LXGW Neo XiHei")
   it
 }
 
