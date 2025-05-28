@@ -1,0 +1,56 @@
+name: Compile Typst Document (Windows)
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # 安装 Scoop 包管理器
+    - name: Install Scoop
+      shell: powershell
+      run: |
+        Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+        irm get.scoop.sh | iex
+
+    # 安装所需字体
+    - name: Install Fonts via Scoop
+      shell: powershell
+      run: |
+        # 添加字体仓库
+        scoop bucket add nerd-fonts
+        scoop bucket add slug https://github.com/woyxiang/slug
+        # Maple Mono (ttf 格式)
+        scoop install Maple-Mono
+        # Maple Mono NF
+        scoop install Maple-Mono-NF
+        # Maple Mono NF CN
+        scoop install Maple-Mono-NF-CN
+        
+        # 安装 Fira Math (数学字体)
+        scoop install FiraMathOtf
+        
+    # 安装 Typst
+    - name: Install Typst
+      shell: powershell
+      run: |
+        scoop install typst
+
+
+    # 编译文档
+    - name: Compile document
+      shell: powershell
+      run: typst compile main.typ
+
+    # 上传产物
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: compiled-pdf
+        path: main.pdf
