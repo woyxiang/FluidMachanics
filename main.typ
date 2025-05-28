@@ -229,6 +229,47 @@ $ P_z=rho g V "(竖直方向)" $
 总压力可表示为
 $ bold(P)=P_x vi+P_y vj+P_z vk $
 
+= 流体运动学
+
+== 拉格朗日表达式
+
+速度：
+
+$ cases(
+  u_x=frac(diff x,diff t),
+  u_y=frac(diff y,diff t),
+  u_z=frac(diff z,diff t)
+  ) $
+
+加速度：
+
+$ cases(
+  a_x=frac(diff u_x,diff t)=frac(diff^2 x,diff t^2),
+  a_y=frac(diff u_y,diff t)=frac(diff^2 y,diff t^2),
+  a_z=frac(diff u_z,diff t)=frac(diff^2 z,diff t^2)
+) $
+
+== 欧拉表达式
+
+速度：
+$ u_x=u_x (x,y,z,t) $
+
+加速度：
+$ bold(a)=frac(dif bold(u),dif t) $
+
+== 迹线
+
+消去拉格朗日法表达式中的$t$就是迹线方程
+
+== 流线
+$ frac(dif x,u_x)=frac(dif y,u_y) $
+
+== 连续性方程
+
+$ frac(diff rho,diff t)+frac(diff rho u_x,diff t)+frac(diff rho u_y,diff t)+frac(diff rho u_z,diff t)=0 $
+或
+$ frac(dif rho,dif t)+rho nabla bold(u)=0 $
+
 
 
 
