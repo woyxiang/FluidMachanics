@@ -19,11 +19,7 @@ jobs:
         Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
         irm get.scoop.sh | iex
 
-    # 安装所需字体
-    - name: Install Fonts via Scoop
-      shell: powershell
-      run: |
-        echo "$env:USERPROFILE\scoop\shims" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        # 安装所需字体
         # 添加字体仓库
         scoop bucket add nerd-fonts
         scoop bucket add slug https://github.com/woyxiang/slug
@@ -37,18 +33,14 @@ jobs:
         # 安装 Fira Math (数学字体)
         scoop install FiraMathOtf
         
-    # 安装 Typst
-    - name: Install Typst
-      shell: powershell
-      run: |
-        echo "$env:USERPROFILE\scoop\shims" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        # 安装 Typst
+
         scoop install typst
 
 
-    # 编译文档
-    - name: Compile document
-      shell: powershell
-      run: typst compile main.typ
+        # 编译文档
+
+        typst compile main.typ
 
     # 上传产物
     - name: Upload artifact
