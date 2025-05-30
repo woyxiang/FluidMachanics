@@ -40,21 +40,14 @@ jobs:
 
 
         # 编译文档
-
-        typst compile main.typ
-
-    # 上传产物
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: compiled-pdf
-        path: main.pdf
+        mkdir pdf-out
+        typst compile main.typ pdf-out/main.pdf
 
     - name: Deploy PDF to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: .  # 当前目录
+        publish_dir: ./pdf-out  
         publish_branch: gh-pages
         keep_files: false  # 保留旧文件
         destination_dir: .  # 发布在 gh-pages 根目录
