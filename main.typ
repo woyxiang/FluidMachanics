@@ -62,10 +62,37 @@ $dif T$：温度的变化量，$upright("K")$
 
 #cetz.canvas({
   import cetz.draw: *
-  line((0,0),(4,0))//下板
-  line((0,2),(4,2))//上板
+  //下板
+  rect((0,0),(4,-0.1))
+  content((4.3,-0.05),text(0.55em)[A板])
+  //上板
+  rect((0,2),(4,2.1))
+  content((4.19,2.25),text(0.55em)[B板])
   line((0.5,0),(0.5,2))//流体开头
   line((0.5,0),(3.5,2))//速度梯度
+  set-style(mark: (end: "straight"))//左箭头
+  
+  // 速度u_0
+  line((1.4,2.2),(2.4,2.2))
+  content((1.8,2.4),text(0.75em)[$u_0$])
+
+  //速度分布
+  let n=1
+  while n < 6 {
+    
+    let LCord = 2 * n/6
+    line((0.5,LCord),(3*n/6+0.5,LCord))
+    n+=1
+  }
+  
+  //拉力T
+  line((4.1,2.1),(5,2.1))
+  content((4.9,1.9),text(0.75em)[$T$])
+
+  set-style(mark: (symbol: "straight"))//双向箭头
+
+  line((0.25,0),(0.25,2))
+  content((0.12,1),text(0.75em,[$y$]))
   
 })
 
