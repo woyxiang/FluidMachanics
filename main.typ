@@ -304,7 +304,7 @@ $ frac(dif rho,dif t)+rho nabla bold(u)=0 $
 + 线率形速率$ &epsilon_(x x)=frac(diff u_x,diff x), epsilon_(y y)=frac(diff u_y,diff y)\
               &epsilon_(x x)+epsilon_(y y) cases(=0"可压",eq.not 0"不可压") $
 + 角变形速度$ epsilon_(y x)=1/2(frac(diff u_x,diff y)+frac(diff u_y,diff x)) $
-+ 旋转解速度$ &omega_z=1/2(frac(diff u_y,diff x)+frac(diff u_x,diff y))\
++ 旋转角速度$ &omega_z=1/2(frac(diff u_y,diff x)+frac(diff u_x,diff y))\
               &omega_z cases(=0"无旋流动",eq.not 0"有旋流动") $
 
 = 带泵的伯努利方程
