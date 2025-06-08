@@ -1,4 +1,4 @@
-#import "@preview/ori:0.2.2": numbly
+#import "@preview/numbly:0.1.0": numbly
 #import "@preview/cetz:0.3.4"
 
 #let Pa=($upright("Pa")$)
@@ -295,8 +295,74 @@ $ frac(dif x,u_x)=frac(dif y,u_y) $
 
 $ frac(diff rho,diff t)+frac(diff rho u_x,diff t)+frac(diff rho u_y,diff t)+frac(diff rho u_z,diff t)=0 $
 或
-$ frac(dif rho,dif t)+rho nabla bold(u)=0 $
+$ frac(dif rho,dif t)+rho nabla bold(u)=0 $ 
 
+== 运动分析
 
++ 速度大小$ u=sqrt(u_x^2+u_y^2) $
++ 流线方程$ frac(dif x,u_x)=frac(dif y,u_y) $
++ 线率形速率$ &epsilon_(x x)=frac(diff u_x,diff x), epsilon_(y y)=frac(diff u_y,diff y)\
+              &epsilon_(x x)+epsilon_(y y) cases(=0"可压",eq.not 0"不可压") $
++ 角变形速度$ epsilon_(y x)=1/2(frac(diff u_x,diff y)+frac(diff u_y,diff x)) $
++ 旋转解速度$ &omega_z=1/2(frac(diff u_y,diff x)+frac(diff u_x,diff y))\
+              &omega_z cases(=0"无旋流动",eq.not 0"有旋流动") $
 
+= 带泵的伯努利方程
 
+$ z_1+p_1/(rho g)+v_1^2/(2g)+H=z_2+p_2/(rho g)+v_2^2/(2g)+h_(w_(1-2)) $
+$z$：位置水头\
+$p/(rho g)$：压力水头\
+$v/(2g)$：流速水头\
+$H$：泵的扬程\
+$h_(w_(1-2))$：水头损失
+
+由此：泵的扬程$H$等于泵前后两断面上的总比能差加上两断面的水头损失
+
+== 泵的功率
+
+有效功为：$ W=rho g Q H dif t $
+有效功率为：$ N_泵=rho g Q H $
+泵效：$ eta_泵=N_泵/N_轴 $
+
+泵的输入功率称为泵的额定功率，也称之为轴功功率，以$N_轴$表示\
+电动机效率：$ eta_电=N_轴/N_泵 $
+
+= 相似原理
+
+几何相似$cases(
+  "线段成比例",
+  "角度成比例",
+  "边界性质相同"
+)$
+
+运动相似：两个流动对应点处的同名运动学量成比例。
+
+重力相似准则：$ F r=v\/sqrt(g l) $
+黏性力相似准则：$ R e=rho v d\/mu =v d \/nu $
+压力相似准则：$ E u=p\/rho v^2 $
+
+= 黏性流体动力学
+== N-S方程
+$ X-1/rho frac(diff p,diff x)+nu(frac(diff^2 u_x,diff x^2)+frac(diff^2 u_x,diff y^2)+frac(diff^2 u_x,diff z^2))=frac(dif u,dif t) $
+== 达西公式
+$ h_f=lambda L/D v^2/(2g) $
+
+== 圆管层流速度分布
+
+$ u_x=u_x(y,z), u_y=u_z=0,frac(diff A,diff t)=0 $
+$ frac(diff p,diff x)=frac(Delta p,l) $
+$ frac(diff^2 u_x,diff y^2)=frac(diff^2 u_x,diff z^2)=frac(diff^2 u_x,diff r^2) $
+
+= 复杂管路水力计算
+
+串联管路$cases(
+  Sigma Q_i=0,
+  h_f=Sigma h_f_i
+)$
+
+并联管路$cases(
+  Q=Sigma Q_i,
+  h_f=h_f_1=h_f_2=dots.c=h_f_i
+)$
+
+$ h_f=0.0826 lambda frac(Q^2 l,D^5) $
